@@ -21,6 +21,10 @@ a:focus {
     border-color:transparent;
 }
 
+/* h1, h2 {
+    display: inline;
+} */
+
 .popup {
   display: none;
   position: fixed;
@@ -165,6 +169,7 @@ a:focus {
   color: #fff;
   font-size: 18pt;
   display: grid;
+  /* display: inline; */
 
 }
 

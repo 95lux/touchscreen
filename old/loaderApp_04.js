@@ -11,7 +11,7 @@ function progressSim(){
     ctx.clearRect(0, 0, cw, ch);
     ctx.lineWidth = 19;
     ctx.fillStyle = '#f7d561';
-    ctx.strokeStyle = "#f7d561";
+    ctx.strokeStyle = '#f7d561';
     ctx.beginPath();
     ctx.arc(150, 154, 132, start, diff/10+start, false);
     ctx.stroke();

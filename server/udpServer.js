@@ -14,10 +14,13 @@ module.exports = (connection, socketServer) => {
 
     server.on('message', (msg, rinfo) => {
         console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-        if (msg == 'start') {
-            socketServer.socketSend('transport', msg);
-        }
+        // if (msg == 'start') {
+        //     socketServer.socketSend('transport', msg);
+        // }
+        if (msg == 'home') {
+            socketServer.socketSend('idle', "IDLE");
 
+        }
         if (isNaN(msg) == false && msg != 'start') {
             socketServer.socketSend('duration', msg.toString());
             // console.log(`${msg} send to socketclient`);
@@ -28,7 +31,7 @@ module.exports = (connection, socketServer) => {
 
     server.on('listening', () => {
         const address = server.address();
-        console.log(`🚀 UDP-Server listening ${address.address}:${address.port}`);
+        console.log(`UDP-Server listening ${address.address}:${address.port}`);
     });
 
     server.bind(connection.port, connection.host);

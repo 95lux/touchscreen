@@ -10,7 +10,7 @@ function progressSim(){
     diff = ((al / 100) * Math.PI*2*10).toFixed(2);
     ctx.clearRect(0, 0, cw, ch);
     ctx.lineWidth = 19;
-    ctx.fillStyle = '#d6a780';
+    // ctx.fillStyle = '#d6a780';
     ctx.strokeStyle = '#d6a780';
     ctx.beginPath();
     ctx.arc(150, 154, 132, start, diff/10+start, false);

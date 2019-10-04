@@ -10850,22 +10850,25 @@ module.exports = {
   socketPort: 5012,
   httpPort: 3000,
   udpServers: [{
-    host: '192.168.200.210',
+    host: '192.168.235.201',
     // host: '127.0.0.1',
     port: 5000
   }],
   udpClients: [{
     //VideoServer MadMapper
-    host: '192.168.200.66',
+    // host: '192.168.200.14',
+    host: '192.168.235.201',
     port: 5000
   }, {
     //Brightsign Monitor
-    host: '192.168.200.12',
+    host: '192.168.235.42',
+    // host: '192.168.200.210',
     port: 5000
   }, {
     //Tuomi Beacon Mediaguide
-    host: '192.168.200.202',
-    port: 5000
+    // host: '192.168.200.202',
+    host: '192.168.235.201',
+    port: 4711
   }]
 };
 },{}],"index.js":[function(require,module,exports) {
@@ -10876,27 +10879,42 @@ var axios = require('axios');
 var config = require('../config.js'); // loaderApp variables
 
 
-var ctx = document.getElementById('my_canvas').getContext('2d');
+var ctx = document.getElementById('loader_canvas').getContext('2d');
 var al = 0; // atl =  time to load in ms
 
-var atl = 10000;
+var atl = 0;
 var start = 4.72;
 var cw = ctx.canvas.width;
 var ch = ctx.canvas.height;
-var diff; // function log(data) {
-//     console.log(data)
-// }
+var diff;
+var isBlocked = false;
+var strokeStyles = ['#d6a780', '#d6a780', '#c6e5ff', '#bad74f', '#f7d561', '#f03845'];
+
+function log(data) {
+  console.log(data);
+}
 
 window.sendEvent = function (event, action1, action2, action3) {
-  // stops following href url in link and stay
-  // event.preventDefault();
-  console.log(event, action1, action2, action3); // http://localhost:3000/play/wetter
-  // then success
-  // catch error
+  var category = action2.substring(2, 3);
+  category = parseInt(category, 10);
+  console.log(category);
+  console.log(strokeStyles[category]);
 
-  axios.get("http://localhost:".concat(config.httpPort, "/send/0/") + action1).then(log).catch(log);
-  axios.get("http://localhost:".concat(config.httpPort, "/send/1/") + action2).then(log).catch(log);
-  axios.get("http://localhost:".concat(config.httpPort, "/send/2/") + action3).then(log).catch(log);
+  if (isBlocked) {
+    //VIDEO BLOCK HIER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // event.preventDefault();
+    console.log('video blocked!');
+    return false;
+  } else {
+    ctx.strokeStyle = strokeStyles[category]; // console.log(event, action1, action2, action3);
+    // http://localhost:3000/play/wetter
+    // then success
+    // catch error
+
+    axios.get("http://localhost:".concat(config.httpPort, "/send/0/") + action1).then(log).catch(log);
+    axios.get("http://localhost:".concat(config.httpPort, "/send/1/") + action2).then(log).catch(log);
+    axios.get("http://localhost:".concat(config.httpPort, "/send/2/") + action3).then(log).catch(log);
+  }
 }; // socket.io client io
 
 
@@ -10908,19 +10926,28 @@ socket.on('connection', function () {
 socket.on('transport', function (msg) {
   console.log('start is emited!');
 });
+socket.on('videoNumber', function (msg) {
+  console.log(msg);
+});
 socket.on('duration', function (msg) {
-  var sim = setInterval(progressSim, 50);
+  var msgDuration = parseInt(msg, 10);
+  console.log(msg); //VIDEO BLOCK HIER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // if (isBlocked) {
+  //     console.log('bar blocked');
+  //     return false
+  // }
+  //isBlocked = true
+
   atl = msg;
-  console.log(atl);
 
   function progressSim() {
     diff = (al / atl * 50 * Math.PI * 2 * 10).toFixed(2);
     ctx.clearRect(0, 0, cw, ch);
-    ctx.lineWidth = 10;
-    ctx.strokeStyle = "#09F";
+    ctx.lineWidth = 19; // ctx.strokeStyle = "#09F";
+
     ctx.beginPath(); // .arc(x, y, radius, startAngle, endAngle [, anticlockwise]);
 
-    ctx.arc(77.5, 77.5, 72.5, start, diff / 10 + start, false);
+    ctx.arc(150, 154, 132, start, diff / 10 + start, false);
     ctx.stroke();
 
     if (al >= atl / 50) {
@@ -10930,20 +10957,26 @@ socket.on('duration', function (msg) {
       al = 0;
     }
 
-    al++; // console.log(`${al} / ${atl}`);
+    al++;
   }
+
+  var sim = setInterval(progressSim, 50);
+  setTimeout(function () {
+    isBlocked = false;
+    console.log('bar unblocked');
+  }, msgDuration);
+});
+socket.on('idle', function () {
+  window.location.href = "/index.html";
+  axios.get("http://localhost:".concat(config.httpPort, "/send/0/A-IDLE")).then(log).catch(log); // sendEvent(event, "A-IDLE", undefined, undefined);
 });
 
-$ = function $(id) {
-  return document.getElementById(id);
+window.show = function (id) {
+  document.getElementById(id).style.display = 'block';
 };
 
-var show = function show(id) {
-  $(id).style.display = 'block';
-};
-
-var hide = function hide(id) {
-  $(id).style.display = 'none';
+window.hide = function (id) {
+  document.getElementById(id).style.display = 'none';
 };
 },{"socket.io-client":"../node_modules/socket.io-client/lib/index.js","axios":"../node_modules/axios/index.js","../config.js":"../config.js"}],"../../../../../../../../home/jlx/.nvm/versions/node/v12.6.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -10973,7 +11006,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51032" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58529" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

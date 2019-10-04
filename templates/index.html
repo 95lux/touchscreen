@@ -5,6 +5,7 @@
 <title>Topografie Brocken</title>
 <!-- <link rel="icon" type="image/png" href="/public/favicon.png" /> -->
 <link href="/public/app.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/public/app.js" defer></script>
 
 </head>
 
@@ -18,8 +19,8 @@
 	<div class="popup" id="popup1"><a href="#" onclick="hide('popup1')"><img src="public/images/credits.jpg" width="1500" height="800" alt=""/></a></div>
 
 	</div>
-		<canvas id="my_canvas" width="00" height="00" style="position:absolute; top: 45px; left:100px; z-index: 299;"> </canvas>
-    <!-- <script src="public/loaderApp_00.js" charset="utf-8"></script> -->
+		<canvas id="loader_canvas" width="00" height="00" style="position:absolute; top: 45px; left:100px; z-index: 299;"> </canvas>
+    <!-- <script src="/old/loaderApp_00.js" charset="utf-8"></script> -->
 
 
 <div class="bg_thema">
@@ -29,35 +30,35 @@
 		<div class="icons">
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-0_1', 'B-0_1', '{"h": "p","id": "376361"}')" href="/geologie.html">
+				<a class="iconfield" onclick="sendEvent(event, 'A-1_0', 'B-1_0', '{\'h\': \'p\',\'id\': \'376361\'}')" href="/geologie.html">
  					<img src="public/icons/geologie.png" width="150" height="150" alt=""/><br>
 					<h1>Geologie</h1>
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-0_2', 'B-0_2', '{"h": "p","id": "376362"}')" href="/klima.html">
+				<a class="iconfield" onclick="sendEvent(event, 'A-2_0', 'B-2_0', '{\'h\': \'p\',\'id\': \'376366\'}')" href="/klima.html">
  					<img src="public/icons/klima.png" width="150" height="150" alt=""/><br>
 					<h1>Klima</h1>
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-0_3', 'B-0_3', '{"h": "p","id": "376363"}')" href="/lebensraeume.html">
+				<a class="iconfield" onclick="sendEvent(event, 'A-3_0', 'B-3_0', '{\'h\': \'p\',\'id\': \'376371\'}')" href="/lebensraeume.html">
  					<img src="public/icons/lebensraeume.png" width="150" height="150" style="position: relative; left: 30px;"><br>
 					<h1>Lebensräume</h1>
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-0_4', 'B-0_4', '{"h": "p","id": "376364"}')" href="/nationalpark.html">
+				<a class="iconfield" onclick="sendEvent(event, 'A-4_0', 'B-4_0', '{\'h\': \'p\',\'id\': \'376378\'}')" href="/nationalpark.html">
  					<img src="public/icons/national.png" width="150" height="150"  style="position: relative; left: 20px;"><br>
 					<h1>Nationalpark</h1>
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-0_5', 'B-0_5', '{"h": "p","id": "376365"}')" href="/besuch.html">
+				<a class="iconfield" onclick="sendEvent(event, 'A-5_0', 'B-5_0', '{\'h\': \'p\',\'id\': \'376383\'}')" href="/besuch.html">
  					<img src="public/icons/besuch.png" width="150" height="150" alt=""/><br>
 					<h1>Besuch</h1>
 				</a>
