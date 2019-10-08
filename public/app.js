@@ -10879,7 +10879,7 @@ var axios = require('axios');
 var config = require('../config.js'); // loaderApp variables
 
 
-var ctx = document.getElementById('loader_canvas').getContext('2d');
+ctx = document.getElementById('loader_canvas').getContext('2d');
 var al = 0; // atl =  time to load in ms
 
 var atl = 0;
@@ -10887,6 +10887,7 @@ var start = 4.72;
 var cw = ctx.canvas.width;
 var ch = ctx.canvas.height;
 var diff;
+ctx.strokeStyle = sessvars.color;
 var isBlocked = false;
 var strokeStyles = ['#d6a780', '#d6a780', '#c6e5ff', '#bad74f', '#f7d561', '#f03845'];
 
@@ -10906,7 +10907,8 @@ window.sendEvent = function (event, action1, action2, action3) {
     console.log('video blocked!');
     return false;
   } else {
-    ctx.strokeStyle = strokeStyles[category]; // console.log(event, action1, action2, action3);
+    ctx.strokeStyle = strokeStyles[category];
+    sessvars.color = strokeStyles[category]; // console.log(event, action1, action2, action3);
     // http://localhost:3000/play/wetter
     // then success
     // catch error
@@ -10929,6 +10931,7 @@ socket.on('transport', function (msg) {
 socket.on('videoNumber', function (msg) {
   console.log(msg);
 });
+var newTrigger = 0;
 socket.on('duration', function (msg) {
   var msgDuration = parseInt(msg, 10);
   console.log(msg); //VIDEO BLOCK HIER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -10938,7 +10941,14 @@ socket.on('duration', function (msg) {
   // }
   //isBlocked = true
 
-  atl = msg;
+  newTrigger++;
+  atl = msg; // if ((al >= (atl/50)) || (newTrigger >= 2)) {
+  //     clearTimeout(sim);
+  //     console.log('video finished');
+  //     ctx.clearRect(0, 0, cw, ch);
+  //     al = atl;
+  //     newTrigger = 0;
+  // }
 
   function progressSim() {
     diff = (al / atl * 50 * Math.PI * 2 * 10).toFixed(2);
@@ -10950,11 +10960,12 @@ socket.on('duration', function (msg) {
     ctx.arc(150, 154, 132, start, diff / 10 + start, false);
     ctx.stroke();
 
-    if (al >= atl / 50) {
+    if (al >= atl / 50 || newTrigger >= 2) {
       clearTimeout(sim);
       console.log('video finished');
       ctx.clearRect(0, 0, cw, ch);
       al = 0;
+      newTrigger = 0;
     }
 
     al++;
@@ -11006,7 +11017,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58529" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55744" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
