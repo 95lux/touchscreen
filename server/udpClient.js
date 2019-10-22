@@ -15,7 +15,7 @@ module.exports = (connection) => {
             // console.log(message);
             var bytesFrom = 0;
             var bytesTo = message.length;
-
+            console.log('send to server '+message);
             client.send(message, bytesFrom, bytesTo, connection.port, connection.host, callback);
         }
     }

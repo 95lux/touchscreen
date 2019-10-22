@@ -13,59 +13,63 @@
 
 
 
-	<div> <a href="#" onclick="show('popup1')">
-		<img src="public/images/info_butt.png" width="75" height="75" style="position: absolute; left: 1800px; top:50px; z-index: 999;">
+	<div> <a href="#" ontouchstart="show('popup1')">
+		<img src="public/images/info_butt.png" width="75" height="75" style="position: absolute; left: 1800px; top:48px; z-index: 16000;">
 		</a>
-	<div class="popup" id="popup1"><a href="#" onclick="hide('popup1')"><img src="public/images/credits.jpg" width="1500" height="800" alt=""/></a></div>
+	<div class="popup" id="popup1"><a href="#" ontouchstart="hide('popup1')"><img src="public/images/credits.jpg" width="1500" height="800" alt=""/></a></div>
 	</div>
 
+	<div class="playOverlay" id="4_0"><a href="#"><img src="public/images/04_00.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="4_1"><a href="#"><img src="public/images/04_01.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="4_2"><a href="#"><img src="public/images/04_02.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="4_3"><a href="#"><img src="public/images/04_03.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="4_4"><a href="#"><img src="public/images/04_04.jpg" width="1920" height="1080" alt=""/></a></div>
 
 
 
+<div class="bg_national">
 
-<div class="bg_lebens">
 
-
-	<canvas id="loader_canvas" width="500" height="500" style="position:absolute; top: 45px; left:100px; z-index: 299;"> </canvas>
+	<canvas id="loader_canvas" width="500" height="500" style="position:absolute; top: 44px; left:100px; z-index: 15000;"> </canvas>
     <!-- <script src="public/loaderApp_04.js" charset="utf-8"></script> -->
 
 	<div class="silhouette">
 
-		<div class="national_head"> 	Nationalpark&nbsp;&nbsp; </div>
+		<!-- <div class="national_head"> 	Nationalpark&nbsp;&nbsp; </div>
 		<div class="klima">
 
 		<a href="/index"><img src="public/icons/national.png" width="300" height="300"></a>
-		</div>
+		</div> -->
 
 		<div class="subs">
 
 			<div class="iconwidth" align="center" style="position: relative; left:-30px;">
-				<a class="iconfield" onclick="sendEvent(event, 'A-4_1', 'B-4_1', '{\'h\': \'p\',\'id\': \'376379\'}')" >
-					<img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:40px;" alt=""/><br>
-					<h1>Waldgeschichte</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-4_1', 'B-4_1', '{\'h\': \'p\',\'id\': \'376379\'}')" style="position: absolute; left:260px;">
+					<!-- <img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:40px;" alt=""/><br>
+					<h1>Waldgeschichte</h1> -->
 				</a>
 		  </div>
 
 
 			<div class="iconwidth" align="center">
-				<a class="iconfield" onclick="sendEvent(event, 'A-4_2', 'B-4_2', '{\'h\': \'p\',\'id\': \'376380\'}')" >
-					<img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:20px;"><br>
-					<h1>Nationalpark Harz</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-4_2', 'B-4_2', '{\'h\': \'p\',\'id\': \'376380\'}')" style="position: absolute; left:180px;">
+					<!-- <img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:20px;"><br>
+					<h1>Nationalpark Harz</h1> -->
 				</a>
  			</div>
 
 			<div class="iconwidth" align="center">
-				<a class="iconfield" onclick="sendEvent(event, 'A-4_3', 'B-4_3', '{\'h\': \'p\',\'id\': \'376381\'}')" >
-					<img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:80px;"><br>
-					<h1>Nationalparkzonierung</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-4_3', 'B-4_3', '{\'h\': \'p\',\'id\': \'376381\'}')" style="position: absolute; left:150px;">
+					<!-- <img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:80px;"><br>
+					<h1>Nationalparkzonierung</h1> -->
 				</a>
  			</div>
 
 
 			<div class="iconwidth" align="center">
-				<a class="iconfield" onclick="sendEvent(event, 'A-4_4', 'B-4_4', '{\'h\': \'p\',\'id\': \'376382\'}')" >
-					<img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:30px;"><br>
-					<h1>Renaturierung Brockenkuppe</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-4_4', 'B-4_4', '{\'h\': \'p\',\'id\': \'376382\'}')" style="position: absolute; left:100px;">
+					<!-- <img src="public/images/playnational.png" width="150" height="150" style="position: relative; left:30px;"><br>
+					<h1>Renaturierung Brockenkuppe</h1> -->
 				</a>
  			</div>
 
@@ -78,43 +82,42 @@
 		<div class="icons">
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-1_0', 'B-1_0', '{\'h\': \'p\',\'id\': \'376361\'}')" href="/geologie.html">
- 					<img src="public/icons/geologie.png" width="150" height="150" alt=""/><br>
-					<h1>Geologie</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-1_0', 'B-1_0', '{\'h\': \'p\',\'id\': \'376361\'}');hrefTo(0)" style="position: absolute; left: -40px;">
+ 					<!-- <img src="public/icons/geologie.png" width="150" height="150" alt="" style="position: absolute; left: -40px; top:10px;"/><br> -->
+					<!-- <h1 style="display: none ; position: absolute; left: -40px; top:130px;"> Geologie</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-2_0', 'B-2_0', '{\'h\': \'p\',\'id\': \'376366\'}')" href="/klima.html">
- 					<img src="public/icons/klima.png" width="150" height="150" alt=""/><br>
-					<h1>Klima</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-2_0', 'B-2_0', '{\'h\': \'p\',\'id\': \'376366\'}');hrefTo(1)" style="position: absolute; left: -30px;">
+ 					<!-- <img src="public/icons/klima.png" width="150" height="150" alt="" style="position: absolute; left: -20px;"/><br>
+					<h1 style="display: none; position: absolute; left: -20px; top:130px;">Klima</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-3_0', 'B-3_0', '{\'h\': \'p\',\'id\': \'376371\'}')" href="/lebensraeume.html">
- 					<img src="public/icons/lebensraeume.png" width="150" height="150" style="position: relative; left: 30px;"><br>
-					<h1>Lebensräume</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-3_0', 'B-3_0', '{\'h\': \'p\',\'id\': \'376371\'}');hrefTo(2)" style="position: absolute; left: -10px;">
+ 					<!-- <img src="public/icons/lebensraeume.png" width="150" height="150" style="display: none ; position: absolute; left: -10px; top:10px;"><br>
+					<h1 style="display: none; position: absolute; left: -40px; top:130px;">Lebensräume</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-4_0', 'B-4_0', '{\'h\': \'p\',\'id\': \'376378\'}')" href="/nationalpark.html">
- 					<img src="public/icons/national.png" width="150" height="150"  style="position: relative; left: 20px;"><br>
-					<h1>Nationalpark</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-4_0', 'B-4_0', '{\'h\': \'p\',\'id\': \'376378\'}');hrefTo(3)" style="position: absolute; left: 10px;">
+ 					<!-- <img src="public/icons/national.png" width="150" height="150"  style="display: none ; position: absolute; left: 10px; top:10px;"><br>
+					<h1 style="display: none; position: absolute; left: -10px; top:130px;">Nationalpark</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-5_0', 'B-5_0', '{\'h\': \'p\',\'id\': \'376383\'}')" href="/besuch.html">
- 					<img src="public/icons/besuch.png" width="150" height="150" alt=""/><br>
-					<h1>Besuch</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-5_0', 'B-5_0', '{\'h\': \'p\',\'id\': \'376383\'}');hrefTo(4)" style="position: absolute; left: 30px;">
+ 					<!-- <img src="public/icons/besuch.png" width="150" height="150" alt="" style="display: none; position: absolute; left: 30px; top:10px;"/><br>
+					<h1 style="display: none; position: absolute; left: 30px; top:130px;">Besuch</h1> -->
 				</a>
 		    </div>
 
 		</div>
 
-		</div>
 
 
   </div>

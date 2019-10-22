@@ -74,7 +74,7 @@ sessvars=function(){
 						'Memory usage: '+t.usedMem()+' Kb ('+t.usedMemPercent()+'%)&nbsp;&nbsp;&nbsp;'+
 						'<span style="cursor:pointer"><b>[Clear memory]</b></span><br/>'+
 						top.name.split('\n').join('<br/>')+'</div>';
-			d.getElementsByTagName('span')[0].onclick=function(){t.clearMem();location.reload()}
+			d.getElementsByTagName('span')[0].ontouchstart=function(){t.clearMem();location.reload()}
 		},
 		init:function(){
 			var o={}, t=this;

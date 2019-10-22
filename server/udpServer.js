@@ -1,5 +1,6 @@
 const dgram = require('dgram');
 
+
 module.exports = (connection, socketServer) => {
 
     const server = dgram.createSocket('udp4');
@@ -18,11 +19,15 @@ module.exports = (connection, socketServer) => {
         //     socketServer.socketSend('transport', msg);
         // }
         if (msg == 'home') {
-            socketServer.socketSend('idle', "IDLE");
+            socketServer.emit('idle', "IDLE");
 
         }
         if (isNaN(msg) == false && msg != 'start') {
-            socketServer.socketSend('duration', msg.toString());
+            // socketServer.emit('duration', msg.toString());
+
+            setTimeout(function(){
+                socketServer.emit('duration', msg.toString());
+            }, 150);
             // console.log(`${msg} send to socketclient`);
 
         }

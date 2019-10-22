@@ -12,11 +12,17 @@
 <body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
 
 
-		<div> <a href="#" onclick="show('popup1')">
-		<img src="public/images/info_butt.png" width="75" height="75" style="position: absolute; left: 1800px; top:50px; z-index: 999;">
+		<div> <a href="#" ontouchstart="show('popup1')">
+			<img src="public/images/info_butt.png" width="75" height="75" style="position: absolute; left: 1800px; top:48px; z-index: 16000;">
 		</a>
-	<div class="popup" id="popup1"><a href="#" onclick="hide('popup1')"><img src="public/images/credits.jpg" width="1500" height="800" alt=""/></a></div>
+	<div class="popup" id="popup1"><a href="#" ontouchstart="hide('popup1')"><img src="public/images/credits.jpg" width="1500" height="800" alt=""/></a></div>
 	</div>
+
+	<div class="playOverlay" id="2_0"><a href="#"><img src="public/images/02_00.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="2_1"><a href="#"><img src="public/images/02_01.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="2_2"><a href="#"><img src="public/images/02_02.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="2_3"><a href="#"><img src="public/images/02_03.jpg" width="1920" height="1080" alt=""/></a></div>
+	<div class="playOverlay" id="2_4"><a href="#"><img src="public/images/02_04.jpg" width="1920" height="1080" alt=""/></a></div>
 
 
 
@@ -26,46 +32,46 @@
 <div class="bg_klima">
 
 
-	<canvas id="loader_canvas" width="500" height="500" style="position:absolute; top: 45px; left:100px; z-index: 299;"> </canvas>
+	<canvas id="loader_canvas" width="500" height="500" style="position:absolute; top: 44px; left:100px; z-index: 15000;"> </canvas>
     <!-- <script src="public/loaderApp_01.js" charset="utf-8"></script> -->
 
 
 	<div class="silhouette">
 
-		<div class="klima_head"> 	Klima </div>
+		<!-- <div class="klima_head"> 	Klima </div>
 		<div class="klima">
 
 		<a href="/index.html"><img src="public/icons/klima.png" width="300" height="300"></a>
-		</div>
+		</div> -->
 
 		<div class="subs">
 
 			<div class="iconwidth" align="center">
-				<a class="iconfield" onclick="sendEvent(event, 'A-2_1', 'B-2_1', '{\'h\': \'p\',\'id\': \'376367\'}')" >
-					<img src="public/images/play.png" width="150" height="150" alt=""/><br>
-					<h1>Wetter</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-2_1', 'B-2_1', '{\'h\': \'p\',\'id\': \'376367\'}')" style="position: absolute; left:220px;" >
+					<!-- <img src="public/images/play.png" width="150" height="150" alt=""/><br>
+					<h1>Wetter</h1> -->
 				</a>
 		  </div>
 
 			<div class="iconwidth" align="center">
-				<a class="iconfield" onclick="sendEvent(event, 'A-2_2', 'B-2_2', '{\'h\': \'p\',\'id\': \'376368\'}')" >
-					<img src="public/images/play.png" width="150" height="150" style="position: relative; left:50px;"><br>
-					<h1>Wetterphänomene</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-2_2', 'B-2_2', '{\'h\': \'p\',\'id\': \'376368\'}')" style="position: absolute; left:190px;" >
+					<!-- <img src="public/images/play.png" width="150" height="150" style="position: relative; left:50px;"><br>
+					<h1>Wetterphänomene</h1> -->
 				</a>
  			</div>
 
 
 			<div class="iconwidth" align="center">
-				<a class="iconfield" onclick="sendEvent(event, 'A-2_3', 'B-2_3', '{\'h\': \'p\',\'id\': \'376369\'}')" >
-					<img src="public/images/play.png" width="150" height="150" style="position: relative; left:10px;"><br>
-					<h1>Vegetation</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-2_3', 'B-2_3', '{\'h\': \'p\',\'id\': \'376369\'}')" style="position: absolute; left:130px;">
+					<!-- <img src="public/images/play.png" width="150" height="150" style="position: relative; left:10px;"><br>
+					<h1>Vegetation</h1> -->
 				</a>
  			</div>
 
 			<div class="iconwidth" align="center">
-				<a class="iconfield" onclick="sendEvent(event, 'A-2_4', 'B-2_4', '{\'h\': \'p\',\'id\': \'376370\'}')" >
-					<img src="public/images/play.png" width="150" height="150" style="position: relative; left:20px;"><br>
-					<h1>Klimawandel</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-2_4', 'B-2_4', '{\'h\': \'p\',\'id\': \'376370\'}')" style="position: absolute; left:100px;">
+					<!-- <img src="public/images/play.png" width="150" height="150" style="position: relative; left:20px;"><br>
+					<h1>Klimawandel</h1> -->
 				</a>
  			</div>
 
@@ -75,42 +81,41 @@
 		<div class="icons">
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-1_0', 'B-1_0', '{\'h\': \'p\',\'id\': \'376361\'}')" href="/geologie.html">
- 					<img src="public/icons/geologie.png" width="150" height="150" alt=""/><br>
-					<h1>Geologie</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-1_0', 'B-1_0', '{\'h\': \'p\',\'id\': \'376361\'}');hrefTo(0)" style="position: absolute; left: -40px;">
+ 					<!-- <img src="public/icons/geologie.png" width="150" height="150" alt="" style="position: absolute; left: -40px; top:10px;"/><br> -->
+					<!-- <h1 style="display: none ; position: absolute; left: -40px; top:130px;"> Geologie</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-2_0', 'B-2_0', '{\'h\': \'p\',\'id\': \'376366\'}')" href="/klima.html">
- 					<img src="public/icons/klima.png" width="150" height="150" alt=""/><br>
-					<h1>Klima</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-2_0', 'B-2_0', '{\'h\': \'p\',\'id\': \'376366\'}');hrefTo(1)" style="position: absolute; left: -30px;">
+ 					<!-- <img src="public/icons/klima.png" width="150" height="150" alt="" style="position: absolute; left: -20px;"/><br>
+					<h1 style="display: none; position: absolute; left: -20px; top:130px;">Klima</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-3_0', 'B-3_0', '{\'h\': \'p\',\'id\': \'376371\'}')" href="/lebensraeume.html">
- 					<img src="public/icons/lebensraeume.png" width="150" height="150" style="position: relative; left: 30px;"><br>
-					<h1>Lebensräume</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-3_0', 'B-3_0', '{\'h\': \'p\',\'id\': \'376371\'}');hrefTo(2)" style="position: absolute; left: -10px;">
+ 					<!-- <img src="public/icons/lebensraeume.png" width="150" height="150" style="display: none ; position: absolute; left: -10px; top:10px;"><br>
+					<h1 style="display: none; position: absolute; left: -40px; top:130px;">Lebensräume</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-4_0', 'B-4_0', '{\'h\': \'p\',\'id\': \'376378\'}')" href="/nationalpark.html">
- 					<img src="public/icons/national.png" width="150" height="150"  style="position: relative; left: 20px;"><br>
-					<h1>Nationalpark</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-4_0', 'B-4_0', '{\'h\': \'p\',\'id\': \'376378\'}');hrefTo(3)" style="position: absolute; left: 10px;">
+ 					<!-- <img src="public/icons/national.png" width="150" height="150"  style="display: none ; position: absolute; left: 10px; top:10px;"><br>
+					<h1 style="display: none; position: absolute; left: -10px; top:130px;">Nationalpark</h1> -->
 				</a>
 		    </div>
 
 			<div class="iconwidth">
-				<a class="iconfield" onclick="sendEvent(event, 'A-5_0', 'B-5_0', '{\'h\': \'p\',\'id\': \'376383\'}')" href="/besuch.html">
- 					<img src="public/icons/besuch.png" width="150" height="150" alt=""/><br>
-					<h1>Besuch</h1>
+				<a class="iconfield" ontouchstart="sendEvent(event, 'A-5_0', 'B-5_0', '{\'h\': \'p\',\'id\': \'376383\'}');hrefTo(4)" style="position: absolute; left: 30px;">
+ 					<!-- <img src="public/icons/besuch.png" width="150" height="150" alt="" style="display: none; position: absolute; left: 30px; top:10px;"/><br>
+					<h1 style="display: none; position: absolute; left: 30px; top:130px;">Besuch</h1> -->
 				</a>
 		    </div>
 
 		</div>
-
 
   </div>
 

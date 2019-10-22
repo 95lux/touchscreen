@@ -2,7 +2,7 @@
 
 html {
     overflow: hidden;
-    /* cursor: none; */
+    cursor: none;
     touch-action: none;
     outline-style:none;
     box-shadow:none;
@@ -21,24 +21,52 @@ a:focus {
     border-color:transparent;
 }
 
-/* h1, h2 {
-    display: inline;
-} */
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 .popup {
-  display: none;
-  position: fixed;
-  width: 1500px;
-  left: 250px;
-  height: 780px;
-  top: 150px;
-  background: #FFF;
-  z-index: 15820;
+    display: none;
+    position: fixed;
+    width: 1500px;
+    left: 250px;
+    height: 780px;
+    top: 150px;
+    background: #FFF;
+    /* opacity: 0 ; */
+    transition: all 0.2s;
+    z-index: 16000;
+}
+
+
+.playOverlay {
+    /* display: none; */
+    position: fixed;
+    width: 1920px;
+    left: 0px;
+    height: 1080px;
+    top: 0px;
+    opacity: 0 ;
+    transition: all 0.2s;
+
+    z-index: 0;
+}
+
+.overlayVisible {
+    /* display: block; */
+    opacity: 1;
+
+    z-index: 14000;
 }
 
 #popup1 {
   -webkit-box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
   box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+  z-index: 16000;
 }
 
 #popup2:after {
@@ -49,7 +77,10 @@ a:focus {
   bottom: 0;
   right: 0;
   background: rgba(0,0,0,0.5);
-  z-index: -2;
+  z-index: 16000;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
 }
 
 #popup2:before {
@@ -61,6 +92,9 @@ a:focus {
   right: 0;
   background: #FFF;
   z-index: -15884;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
 }
 
 /* Content */
@@ -68,7 +102,7 @@ a:focus {
 .bg_thema {
   width: 1920px;
   height: 1080px;
-  background-image:url("/public/images/bg_main.jpg");
+  background-image:url("/public/images/R1_Auswahlmonitor_SD_IDLE.jpg");
   z-index: 23;
 }
 
@@ -77,7 +111,7 @@ a:focus {
 .bg_klima {
   width: 1920px;
   height: 1080px;
-  background-image:url("/public/images/bg_klima.jpg");
+  background-image:url("/public/images/02.jpg");
   z-index: 23;
 }
 
@@ -85,7 +119,7 @@ a:focus {
 .bg_geo {
   width: 1920px;
   height: 1080px;
-  background-image:url("/public/images/bg_geo.jpg");
+  background-image:url("/public/images/01.jpg");
   z-index: 23;
 }
 
@@ -94,7 +128,7 @@ a:focus {
 .bg_lebens {
   width: 1920px;
   height: 1080px;
-  background-image:url("/public/images/bg_lebens.jpg");
+  background-image:url("/public/images/03.jpg");
   z-index: 23;
 }
 
@@ -103,7 +137,7 @@ a:focus {
 .bg_national {
   width: 1920px;
   height: 1080px;
-  background-image:url("/public/images/bg_national.jpg");
+  background-image:url("/public/images/04.jpg");
   z-index: 23;
 }
 
@@ -112,7 +146,7 @@ a:focus {
 .bg_besuch {
   width: 1920px;
   height: 1080px;
-  background-image:url("/public/images/bg_besuch.jpg");
+  background-image:url("/public/images/05.jpg");
   z-index: 23;
 }
 
@@ -122,7 +156,7 @@ a:focus {
 .silhouette {
   width: 1920px;
   height: 1080px;
-  background-image:url("/public/images/silhouette.png") ;
+  /* background-image:url("/public/images/silhouette.png") ; */
   background-repeat: no-repeat;
   z-index: 235;
   background-position: bottom;
@@ -164,12 +198,13 @@ a:focus {
   text-align:center;
   margin-top:0px;
   width:150px;
-  height:180px;
+  height:250px;
   text-decoration:none;
   color: #fff;
   font-size: 18pt;
   display: grid;
   /* display: inline; */
+  /* border:1px solid black; */
 
 }
 
@@ -296,14 +331,14 @@ h1{
 
 .national_head {
 	z-index: 2;
- position: fixed;
- left: 340px;
+    position: fixed;
+    left: 340px;
 	top: 140px;
 	font-size: 60pt;
 	 font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-  margin-top:0px;
-  text-decoration:none;
-  color: #fff;
+     margin-top:0px;
+     text-decoration:none;
+     color: #fff;
 	background-color:#b7790b;
 	padding: 12px;
 	padding-left: 80px;
@@ -314,14 +349,14 @@ h1{
 
 .besuch_head {
 	z-index: 2;
- position: fixed;
- left: 340px;
+    position: fixed;
+    left: 340px;
 	top: 140px;
 	font-size: 60pt;
 	 font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-  margin-top:0px;
-  text-decoration:none;
-  color: #fff;
+     margin-top:0px;
+     text-decoration:none;
+     color: #fff;
 	background-color:#7e0e15;
 	padding: 12px;
 	padding-left: 80px;
