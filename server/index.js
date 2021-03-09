@@ -15,7 +15,6 @@ udpServer(config.udpServers[0], socketServer);
 var templateBaseURL = __dirname + '/../templates/';
 
 // serve static html pages
-// beispiel: http://localhost:3000/klima
 httpServer.app.get('/:page?', (req, res, next) => {
     var page = req.params.page || 'index.html';
 
@@ -30,41 +29,19 @@ socketServer.on('connection', function(socket) {
         })
     })
     socket.on('action2', (videoMsg) => {
-    var connection = config.udpClients[1];
-        udpClient(connection).send(videoMsg, (error, bytes) => {
-        })
+        var connection = config.udpClients[1];
+        setTimeout(() => {
+            udpClient(connection).send(videoMsg, (error, bytes) => {
+            })
+        }, config.contentDelay)
     })
     socket.on('action3', (videoMsg) => {
-    var connection = config.udpClients[2];
-        udpClient(connection).send(videoMsg, (error, bytes) => {
-        })
+        var connection = config.udpClients[2];
+        setTimeout(() => {
+            udpClient(connection).send(videoMsg, (error, bytes) => {
+            })
+        }, config.contentDelay)
     })
-    // socket.on('action', (videoMsg) => {
-    //     console.log('this should be 3');
-    //     var connection = config.udpClients[videoMsg.substr(0,1)];
-    //     // console.log(connection);
-    //     var videoName = videoMsg.substr(2);
-    //     // console.log(videoName);
-    //
-    //         if (videoName.startsWith("A") == false){
-    //             // console.log(videoName+" sent");
-    //             udpClient(connection).send(videoName, (error, bytes) => {
-    //                 return;
-    //             })
-    //         } if (videoName.startsWith("A") == true){
-    //             oscClient(videoName, (error, bytes) => {
-    //                 return;
-    //             })
-    //         }
-    // })
-
 })
-
-
-
-
-
-
-
 
 httpServer.run()

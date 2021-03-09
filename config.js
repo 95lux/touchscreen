@@ -1,6 +1,7 @@
 module.exports = {
     socketPort: 5012,
     httpPort: 3000,
+    contentDelay: 1000,
     udpServers: [{
         host: '192.168.200.16',
         // host: '192.168.200.252',
